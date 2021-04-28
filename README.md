@@ -10,9 +10,13 @@ make install
 gsh
 ```
 
+## Dev
+
+TODO
+
 ## Roadmap
 
-- [ ] Main repl loop, echo input back to stdout
+- [x] Main repl loop, echo input back to stdout
 - [ ] Implement a way to exit, EOF
 - [ ] Execute shell with command arg `-c` then exit
 - [ ] Run subprocess, `fork()` `exec()`
