@@ -18,7 +18,7 @@ TODO
 
 - [x] Main repl loop, echo input back to stdout
 - [x] Implement a way to exit, EOF
-- [ ] Execute shell with command arg `-c` then exit
+- [x] Execute shell with command arg `-c` then exit
 - [ ] Run subprocess, `fork()` `exec()`
     - [ ] No args `gsh -c ls`
     - [ ] Support args `gsh -c "ls /tmp"`
@@ -31,7 +31,7 @@ TODO
     - [ ] SIGINT
     - [ ] SIGSTOP
     - [ ] SIGKILL
-- [ ]
+- [ ] Run file `gsh script.sh` (stretch)
 - [ ]
 - [ ]
 - [ ]
