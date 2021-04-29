@@ -10,6 +10,10 @@ int main(int argc, char *argv[]) {
 
     fgets(input, 2048, stdin);
 
+    if( feof(stdin) ) {
+       return 0;
+    }
+
     printf("You entered %s", input);
   }
 
