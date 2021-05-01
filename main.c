@@ -77,6 +77,7 @@ int main(int argc, char* argv[]) {
       executeCommand(&cmdArgs);
     } else { // # Parent Process
       if(waitpid(childPid, &childProcStatus, 0) > 0){
+        printf("EXITED childProcStatus:%d\n", childProcStatus);
         if (WIFEXITED(childProcStatus) && !WEXITSTATUS(childProcStatus)){
           /* printf("EXITED childProcStatus:%d\n", childProcStatus); */
         }
