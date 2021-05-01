@@ -7,8 +7,6 @@
 
 extern int errno;
 
-int status;
-
 // @TODO actually parse args
 struct cmdArgs {
     char* cmd;
@@ -35,7 +33,7 @@ CmdArgs parseCmdArgs(char input[]) {
   return c;
 }
 
-int executeCommand(CmdArgs *c) {
+void executeCommand(CmdArgs *c) {
   exit(
     execv(c->cmd, c->args)
   );
@@ -52,15 +50,17 @@ int main(int argc, char* argv[]) {
   } else if (argc == 3) { // flag with argument, @TODO actual parsing
     if (strcmp(argv[1], "-c") == 0) {
       CmdArgs cmdArgs = parseCmdArgs(argv[2]);
-      int retVal = executeCommand(&cmdArgs);
-      fprintf(stdout, "Return Code:%d\n", retVal);
+      executeCommand(&cmdArgs);
     } else {
       fprintf( stderr, "unknown flag '%s\n'", argv[1]);
+      return 1;
     }
     return 0;
   }
 
+
   // ## interactive
+  int childProcStatus;
   char input[2048];
   while (1) {
     fputs("prompt > ", stdout);
@@ -76,9 +76,9 @@ int main(int argc, char* argv[]) {
       CmdArgs cmdArgs = parseCmdArgs(input);
       executeCommand(&cmdArgs);
     } else { // # Parent Process
-      if(waitpid(childPid, &status, 0) > 0){
-        if (WIFEXITED(status) && !WEXITSTATUS(status)){
-          /* printf("EXITED status:%d\n", status); */
+      if(waitpid(childPid, &childProcStatus, 0) > 0){
+        if (WIFEXITED(childProcStatus) && !WEXITSTATUS(childProcStatus)){
+          /* printf("EXITED childProcStatus:%d\n", childProcStatus); */
         }
       }
     }
