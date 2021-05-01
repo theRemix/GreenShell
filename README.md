@@ -33,6 +33,7 @@ TODO
     - [ ] SIGSTOP
     - [ ] SIGKILL
 - [ ] Run file `gsh script.sh` (stretch)
+- [ ] Support pipes (fork and exec all, plumbing with stdin/stdout)
 - [ ]
 - [ ]
 - [ ]
