@@ -22,7 +22,7 @@ char* trimNewline(char* arg) {
 
 CmdArgs parseCmdArgs(char input[]) {
   CmdArgs c;
-  char* token = c.cmd = strtok(input, " ");
+  char* token = c.cmd = trimNewline(strtok(input, " "));
   int i = 0;
   while( token != NULL ) {
     c.args[i] = token;
