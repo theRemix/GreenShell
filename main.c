@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <unistd.h>
 #include <errno.h>
 
@@ -10,7 +11,7 @@ extern int errno;
 // @TODO actually parse args
 struct cmdArgs {
     char* cmd;
-    char* args[];
+    char* args[1024];
 };
 typedef struct cmdArgs CmdArgs;
 
