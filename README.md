@@ -22,7 +22,7 @@ TODO
 - [x] Run subprocess, `fork()` `exec()`
     - [x] No args `gsh -c ls`
     - [x] Support args `gsh -c "ls /tmp"`
-- [ ] Search bin in $PATH (stat)
+- [x] Search bin in $PATH (execvp)
 - [ ] Support Builtins
     - [ ] cd (PWD ?)
     - [ ] exit (EOF)

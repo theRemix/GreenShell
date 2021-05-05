@@ -36,7 +36,7 @@ CmdArgs parseCmdArgs(char input[]) {
 
 void executeCommand(CmdArgs *c) {
   exit(
-    execv(c->cmd, c->args)
+    execvp(c->cmd, c->args)
   );
 }
 
